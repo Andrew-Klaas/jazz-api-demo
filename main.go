@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -18,7 +19,6 @@ var albums = []album{
 	{ID: "2", Title: "Jeru", Artist: "Gerry Mulligan", Price: 17.99},
 	{ID: "3", Title: "Sarah Vaughan and Clifford Brown", Artist: "Sarah Vaughan", Price: 39.99},
 	{ID: "4", Title: "Fellowship of the Ring", Artist: "Tolkien", Price: 39.99},
-
 }
 
 func getAlbums(c *gin.Context) {
@@ -53,6 +53,8 @@ func main() {
 	router.GET("/albums", getAlbums)
 	router.GET("/albums/:id", getAlbumsByID)
 	router.POST("/albums", postAlbums)
+
+	fmt.Printf("Hello")
 
 	router.Run("localhost:8080")
 }
